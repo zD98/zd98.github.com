@@ -44,13 +44,12 @@ h2 {
 }
 
 .selector li {
+    position: relative;
     float: left;
     width: 118px;
     height: 40px;
     background-color: #1e1e1e;
     text-align: center;
-    padding-top: auto;
-    padding-bottom: auto;
 }
 
 .selector li:hover {
@@ -58,8 +57,9 @@ h2 {
 }
 
 span {
+    position: relative;
+    top: 13px;
     color: aliceblue;
     font-size: 14px;
     text-align: center;
-    padding: 18px auto;
 }
