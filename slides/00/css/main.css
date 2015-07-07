@@ -1,27 +1,65 @@
+
 ul {
     list-style: none;
 }
 
+h2 {
+    margin: 0 auto;
+    position: relative;
+}
 #div1 {
     position: relative;
     width: 100%;
 }
 
 #container {
+    width: 590px;
+    height: 320px;
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-ul {
+.selection {
+    width: 590px;
+    height: 280px;
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+    padding: 0;
 }
 
-li {
-    margin: 0;
+.selection li {
+    width: 590px;
+    height: 280px;
     position: absolute;
     left: 0;
     top: 0;
+}
+
+.selector {
+    width: 590px;
+    height: 40px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.selector li {
+    float: left;
+    width: 118px;
+    height: 40px;
+    background-color: #1e1e1e;
+    text-align: center;
+    padding-top: auto;
+    padding-bottom: auto;
+}
+
+.selector li:hover {
+    background-color: chocolate;
+}
+
+span {
+    color: aliceblue;
+    font-size: 14px;
+    text-align: center;
+    padding: 18px auto;
 }

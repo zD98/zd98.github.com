@@ -8,20 +8,47 @@
     </style>
 </head>
 <body>
-<h1>仿-英雄联盟选项卡</h1>
 
+<h1>仿-英雄联盟选项卡</h1>
 <div id="div1">
-    <div id="container">
-        <ul>
+
+    <div class="container">
+        <ul class="selection">
             <li><a href="#"><img src="image/0.jpg"></a></li>
             <li><a href="#"><img src="image/1.jpg"></a></li>
             <li><a href="#"><img src="image/2.jpg"></a></li>
             <li><a href="#"><img src="image/3.jpg"></a></li>
             <li><a href="#"><img src="image/4.jpg"></a></li>
         </ul>
+        <ul class="selector">
+            <li><span>德杯赛程公布</span></li>
+            <li><span>英雄成就</span></li>
+            <li><span>地下拳王 李青</span></li>
+            <li><span>限时折扣促销</span></li>
+            <li><span>明星召唤师揭晓</span></li>
+        </ul>
     </div>
 </div>
 <script>
+    function startMove(obj) {
+
+    }
+    (function () {
+        var oDiv = document.getElementById("div1");
+        var oImage = oDiv.getElementsByClassName("selection")[0];
+        var oTab = oDiv.getElementsByClassName("selector")[0];
+        var aImage = oImage.getElementsByTagName("li");
+        var aTab = oTab.getElementsByTagName("li");
+        for (var i = 0, max = aTab.length; i < max; i++) {
+            aTab[i].index = i;
+            aTab[i].onmouseover = function () {
+                for (var i = 0; i < max; i++) {
+                    aImage[i].style.zIndex = 1;
+                }
+                aImage[this.index].style.zIndex = 2;
+            };
+        }
+    }());
 </script>
 </body>
 </html>
