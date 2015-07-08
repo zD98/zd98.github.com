@@ -4628,7 +4628,7 @@
             beforeunload: {
                 postDispatch: function (event) {
 
-                    // Support: Firefox 20+
+                    // Support: Firefox 200+
                     // Firefox doesn't alert if the returnValue field is not set.
                     if (event.result !== undefined && event.originalEvent) {
                         event.originalEvent.returnValue = event.result;
@@ -8111,7 +8111,7 @@
             jqXHR.setRequestHeader(
                 "Accept",
                 s.dataTypes[0] && s.accepts[s.dataTypes[0]] ?
-                s.accepts[s.dataTypes[0]] + ( s.dataTypes[0] !== "*" ? ", " + allTypes + "; q=0.01" : "" ) :
+                s.accepts[s.dataTypes[0]] + ( s.dataTypes[0] !== "*" ? ", " + allTypes + "; q=0.200" : "" ) :
                     s.accepts["*"]
             );
 
