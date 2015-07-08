@@ -5,10 +5,72 @@
     <title>zD98</title>
     <style>
         body{background-color: #1e1e1e;}
+
+        .header {
+            width: 800px;
+            height: 200px;
+            margin: auto;
+            background-image: url('image/title.png');
+        }
+
+        ul {
+            position: relative;
+            list-style: none;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .nContainer {
+            background-color: black;
+        }
+
+        .nContainer li {
+            width: 266px;
+            height: 80px;
+            position: relative;
+            float: left;
+            text-align: center;
+        }
+
+        .nContainer li:hover {
+            background-color: #222222;
+        }
+
+        a {
+            position: relative;
+            text-decoration: none;
+            color: #f9f9f9;
+            top: 30px;
+        }
+
+        a:hover {
+        }
+
+        .mainContext {
+            width: 800px;
+            height: 400px;
+            background-color: #1e1e1e;
+            margin: 10px auto;
+        }
     </style>
 </head>
 <body>
-<div style="width: 800px;height:200px;margin:auto;background-image: url('image/title.png');"></div>
+<div class="header"></div>
+<div class="navigation">
+    <ul class="nContainer">
+        <li><a href="#">原生JS</a></li>
+        <li><a href="#">jQuery</a></li>
+        <li><a href="#">HTML5/CSS3</a></li>
+    </ul>
+</div>
+<div class="mainContext">
+
+</div>
+<div class="footer">
+    <ul class="fContainer">
+        <li><a href="#">联系我</a></li>
+    </ul>
+</div>
 <script>
 
 </script>
