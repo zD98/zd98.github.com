@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    float: left;
+}
+
+.big {
+    position: relative;
+    width: 521px;
+    height: 280px;
+}
+
+.small {
+    position: relative;
+    width: 521px;
+    height: 203px;
+}
+
+.level0Ul {
+    position: relative;
+}
+
+.level0Ul > li {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.selector > li {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #d2d2d2;
+    z-index: 1001;
+}
+
+.selector {
+    height: 10px;
+}
