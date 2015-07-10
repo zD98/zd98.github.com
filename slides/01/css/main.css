@@ -69,3 +69,16 @@ li {
 .clear {
     clear: both;
 }
+
+.level1 {
+    width: 521px;
+    height: 203px;
+    background-color: #F4F4F4;
+}
+
+/*.smallImage{width:521px;}*/
+.smallImage li {
+    width: 130px;
+    height: 52px;
+    padding-top: 10px
+}

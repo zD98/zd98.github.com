@@ -30,8 +30,19 @@
     </div>
 </div>
 <script>
-    function startMove(obj) {
-
+    function hasClass(obj, cls) {
+        return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+    }
+    function addClass(obj, cls) {
+        if (!hasClass(obj, cls)) {
+            obj.className += " " + cls;
+        }
+    }
+    function removeClass(obj, cls) {
+        if (!hasClass(obj, cls)) {
+            var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+            obj.className.replace(reg, "");
+        }
     }
     (function () {
         var oDiv = document.getElementById("div1");
@@ -44,8 +55,10 @@
             aTab[i].onmouseover = function () {
                 for (var i = 0; i < max; i++) {
                     aImage[i].style.zIndex = 1;
+                    removeClass(aTab[i], "active")
                 }
                 aImage[this.index].style.zIndex = 2;
+                addClass(aTab[i], "active");
             };
         }
     }());

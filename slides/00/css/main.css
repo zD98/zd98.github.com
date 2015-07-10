@@ -56,6 +56,9 @@ h2 {
     background-color: chocolate;
 }
 
+.active {
+    background-color: chocolate;
+}
 span {
     position: relative;
     top: 13px;
