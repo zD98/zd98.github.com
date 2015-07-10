@@ -7,18 +7,10 @@
 </head>
 <body>
 <h1>仿-淘宝轮转</h1>
-
 <div id="div1">
     <div class="big">
         <div class="left"></div>
         <div class="right"></div>
-        <ul class="selector">
-            <li class="active"></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
         <ul class="level0Ul">
             <li><a><img src="image/a.jpg"/></a></li>
             <li><a><img src="image/b.jpg"/></a></li>
@@ -26,7 +18,13 @@
             <li><a><img src="image/d.jpg"/></a></li>
             <li><a><img src="image/e.jpg"/></a></li>
         </ul>
-
+        <ul class="selector clear">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
     <div class="small">
         <div class="left"></div>
@@ -91,7 +89,7 @@
                 </ul>
             </li>
         </ul>
-        <ul class="selector">
+        <ul class="selector clear">
             <li class="active"></li>
             <li></li>
             <li></li>
@@ -101,5 +99,27 @@
         </ul>
     </div>
 </div>
+<script>
+    function startMove(obj, target) {
+
+    }
+    var oDiv = document.getElementById("div1");
+    var oBigDiv = oDiv.getElementsByClassName("big")[0];
+    var oSmallDiv = oDiv.getElementsByClassName("small")[0];
+    var aBigLi = oBigDiv.getElementsByClassName("level0Ul")[0].getElementsByTagName("li");
+    var aBigSelLi = oBigDiv.getElementsByClassName("selector")[0].getElementsByTagName("li");
+    var aSmallLi = oSmallDiv.getElementsByClassName("level0Ul")[0].getElementsByTagName("li");
+    var aSmallSelLi = oSmallDiv.getElementsByClassName("selector")[0].getElementsByTagName("li");
+    for (var i = 0, max = aBigSelLi.length; i < max; i++) {
+        aBigSelLi[i].index = i;
+        aBigSelLi[i].onclick = function () {
+            for (var i = 0, max = aBigSelLi.length; i < max; i++) {
+                aBigLi[i].style.zIndex = 1;
+            }
+            aBigLi[this.index].style.zIndex = 2;
+
+        };
+    }
+</script>
 </body>
 </html>

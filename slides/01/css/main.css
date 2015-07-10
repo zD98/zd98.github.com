@@ -1,10 +1,14 @@
-* {
-    margin: 0;
-    padding: 0;
+/** {margin: 0;padding: 0;}*/
+h1 {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 li {
@@ -23,6 +27,14 @@ li {
     height: 203px;
 }
 
+.big .selector {
+    left: 205px;
+}
+
+.small .selector {
+    left: 195px;
+}
+
 .level0Ul {
     position: relative;
 }
@@ -38,9 +50,22 @@ li {
     height: 10px;
     border-radius: 5px;
     background-color: #d2d2d2;
-    z-index: 1001;
+    margin: 1px 6px 1px 6px;
+}
+
+.selector > li:hover {
+    background-color: chocolate;
 }
 
 .selector {
-    height: 10px;
+    position: absolute;
+    bottom: 16px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.17);
+    padding: 0 auto;
+    z-index: 1001;
+}
+
+.clear {
+    clear: both;
 }
