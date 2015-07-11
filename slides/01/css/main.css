@@ -17,16 +17,21 @@ li {
 
 .big {
     position: relative;
-    width: 521px;
+    width: 520px;
     height: 280px;
+    overflow: hidden;
 }
 
 .small {
     position: relative;
-    width: 521px;
+    width: 520px;
     height: 203px;
+    overflow: hidden;
 }
 
+.small .level0Ul {
+    width: 3120px;
+}
 .big .selector {
     left: 205px;
 }
@@ -36,12 +41,14 @@ li {
 }
 
 .level0Ul {
-    position: relative;
+    position: absolute;
+    width: 2605px;
+    left: 0;
 }
 
 .level0Ul > li {
-    position: absolute;
-    top: 0;
+    position: relative;
+    width: 520px;
     left: 0;
 }
 
@@ -65,7 +72,6 @@ li {
     padding: 0 auto;
     z-index: 1001;
 }
-
 .clear {
     clear: both;
 }
@@ -75,10 +81,37 @@ li {
     height: 203px;
     background-color: #F4F4F4;
 }
-
-/*.smallImage{width:521px;}*/
 .smallImage li {
     width: 130px;
     height: 52px;
     padding-top: 10px
+}
+
+.left {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    float: left;
+    left: 10px;
+    margin: auto 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.2)
+}
+
+.right {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    float: right;
+    right: 10px;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.2)
+}
+
+.left:hover {
+    background-color: rgba(0, 0, 0, 0.5)
+}
+
+.right:hover {
+    background-color: rgba(0, 0, 0, 0.5)
 }

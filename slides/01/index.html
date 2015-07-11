@@ -9,8 +9,8 @@
 <h1>仿-淘宝轮转</h1>
 <div id="div1">
     <div class="big">
-        <div class="left"></div>
-        <div class="right"></div>
+        <div class="left"><img src="image/left.png"></div>
+        <div class="right"><img src="image/right.png"></div>
         <ul class="level0Ul">
             <li><a><img src="image/a.jpg"/></a></li>
             <li><a><img src="image/b.jpg"/></a></li>
@@ -27,8 +27,8 @@
         </ul>
     </div>
     <div class="small">
-        <div class="left"></div>
-        <div class="right"></div>
+        <div class="left"><img src="image/left.png"></div>
+        <div class="right"><img src="image/right.png"></div>
         <ul class="level0Ul">
             <li class="level1">
                 <ul>
@@ -100,37 +100,61 @@
     </div>
 </div>
 <script>
-    function startMove(obj, target) {
-        obj.timer = null;
-        var speed = 5;
-        obj.timer = setInterval(function () {
-            obj.style.left -= speed;
-        }, 30);
-        if (target == obj.style.left) {
-            obj.timer = null;
+    function getStyle(obj, name) {
+        if (obj.style[name]) {
+            return obj.style[name];
         }
+        else if (obj.currentStyle) {
+            return obj.currentStyle[name];
+        } else {
+            return window.getComputedStyle(obj, null)[name];
+        }
+
+    }
+    function startMove(obj, target) {
+
+        clearInterval(obj.timer);
+        var speed = 10;
+        var cur = parseInt(getStyle(obj, "left"));
+        speed = target ? -1 * speed : speed;
+        obj.timer = setInterval(function () {
+            cur += speed;
+
+            obj.style.left = cur + "px";
+            if (target == cur) {
+                clearInterval(obj.timer);
+            }
+        }, 50);
+
+
     }
     var oDiv = document.getElementById("div1");
     var oBigDiv = oDiv.getElementsByClassName("big")[0];
     var oSmallDiv = oDiv.getElementsByClassName("small")[0];
-    var aBigLi = oBigDiv.getElementsByClassName("level0Ul")[0].getElementsByTagName("li");
+
+    var oBigUl = oBigDiv.getElementsByClassName("level0Ul")[0];
+    var aBigLi = oBigUl.getElementsByTagName("li");
     var aBigSelLi = oBigDiv.getElementsByClassName("selector")[0].getElementsByTagName("li");
 
     var aSmallLi = oSmallDiv.getElementsByClassName("level0Ul")[0].getElementsByClassName("level1");
     var aSmallSelLi = oSmallDiv.getElementsByClassName("selector")[0].getElementsByTagName("li");
+
     for (var i = 0, max = aBigSelLi.length; i < max; i++) {
         aBigSelLi[i].index = i;
+        var now = 0;
         aBigSelLi[i].onclick = function () {
-            for (var i = 0, max = aBigSelLi.length; i < max; i++) {
-                aBigLi[i].style.zIndex = 1;
-            }
-            aBigLi[this.index].style.zIndex = 2;
 
+            if (now == this.index) {
+                return;
+            }
+            startMove(oBigUl, 520 * (now - this.index));
+            now = this.index;
         };
     }
     for (var i = 0, max = aSmallSelLi.length; i < max; i++) {
         aSmallSelLi[i].index = i;
         aSmallSelLi[i].onclick = function () {
+
             for (var i = 0, max = aSmallSelLi.length; i < max; i++) {
                 aSmallLi[i].style.zIndex = 1;
             }
@@ -138,6 +162,8 @@
 
         };
     }
+    //startMove(aBigLi[0],-520);
+
 </script>
 </body>
 </html>
