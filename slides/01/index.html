@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <link href="css/main.css" rel="stylesheet"/>
-    <title></title>
+    <title>仿-淘宝轮转</title>
 </head>
 <body>
 <h1>仿-淘宝轮转</h1>
 <div id="div1">
     <div class="big">
-        <div class="left"><img src="image/left.png"></div>
-        <div class="right"><img src="image/right.png"></div>
+        <div class="button">
+            <div class="left"><img src="image/left.png"></div>
+            <div class="right"><img src="image/right.png"></div>
+        </div>
         <ul class="level0Ul">
             <li><a><img src="image/a.jpg"/></a></li>
             <li><a><img src="image/b.jpg"/></a></li>
@@ -27,8 +29,10 @@
         </ul>
     </div>
     <div class="small">
-        <div class="left"><img src="image/left.png"></div>
-        <div class="right"><img src="image/right.png"></div>
+        <div class="button">
+            <div class="left"><img src="image/left.png"></div>
+            <div class="right"><img src="image/right.png"></div>
+        </div>
         <ul class="level0Ul">
             <li class="level1">
                 <ul>
@@ -111,59 +115,86 @@
         }
 
     }
-    function startMove(obj, target) {
+    function startMove(obj, arr, target) {
 
         clearInterval(obj.timer);
-        var speed = 10;
-        var cur = parseInt(getStyle(obj, "left"));
-        speed = target ? -1 * speed : speed;
+        var speed = null, cur = null;
+        if (arr == 'opacity') {
+            cur = parseFloat(getStyle(obj, arr)) * 100;
+        } else {
+            cur = parseInt(getStyle(obj, arr));
+        }
         obj.timer = setInterval(function () {
-            cur += speed;
 
-            obj.style.left = cur + "px";
+            speed = (target - cur) / 7;
+
+            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
             if (target == cur) {
                 clearInterval(obj.timer);
             }
-        }, 50);
+            else {
+                cur += speed;
+                if (arr == "opacity") {
+                    obj.style[arr] = cur / 100;
+                } else {
+                    obj.style[arr] = cur + "px";
+                }
+            }
+        }, 30);
 
 
     }
     var oDiv = document.getElementById("div1");
     var oBigDiv = oDiv.getElementsByClassName("big")[0];
     var oSmallDiv = oDiv.getElementsByClassName("small")[0];
-
     var oBigUl = oBigDiv.getElementsByClassName("level0Ul")[0];
-    var aBigLi = oBigUl.getElementsByTagName("li");
     var aBigSelLi = oBigDiv.getElementsByClassName("selector")[0].getElementsByTagName("li");
-
-    var aSmallLi = oSmallDiv.getElementsByClassName("level0Ul")[0].getElementsByClassName("level1");
+    var oSmallUl = oSmallDiv.getElementsByClassName("level0Ul")[0];
     var aSmallSelLi = oSmallDiv.getElementsByClassName("selector")[0].getElementsByTagName("li");
-
+    var bNow, sNow = 0;
     for (var i = 0, max = aBigSelLi.length; i < max; i++) {
         aBigSelLi[i].index = i;
-        var now = 0;
+
         aBigSelLi[i].onclick = function () {
 
-            if (now == this.index) {
+            if (bNow == this.index) {
                 return;
             }
-            startMove(oBigUl, 520 * (now - this.index));
-            now = this.index;
+            startMove(oBigUl, "left", -520 * this.index);
+            bNow = this.index;
+
         };
     }
-    for (var i = 0, max = aSmallSelLi.length; i < max; i++) {
+    for (i = 0, max = aSmallSelLi.length; i < max; i++) {
         aSmallSelLi[i].index = i;
         aSmallSelLi[i].onclick = function () {
 
-            for (var i = 0, max = aSmallSelLi.length; i < max; i++) {
-                aSmallLi[i].style.zIndex = 1;
+            if (sNow == this.index) {
+                return;
             }
-            aSmallLi[this.index].style.zIndex = 2;
-
+            startMove(oSmallUl, "left", -520 * this.index);
+            sNow = this.index;
         };
     }
-    //startMove(aBigLi[0],-520);
-
+    oBigDiv.onmouseover = function () {
+        var button = oBigDiv.getElementsByClassName("button")[0];
+        startMove(button, "opacity", 100);
+    };
+    oBigDiv.onmouseout = function () {
+        var button = oBigDiv.getElementsByClassName("button")[0];
+        startMove(button, "opacity", 50);
+    };
+    oBigDiv.onmouseout();
+    oSmallDiv.onmouseover = function () {
+        var button = oSmallDiv.getElementsByClassName("button")[0];
+        startMove(button, "opacity", 100);
+    };
+    oSmallDiv.onmouseout = function () {
+        var button = oSmallDiv.getElementsByClassName("button")[0];
+        startMove(button, "opacity", 50);
+    };
+    oSmallDiv.onmouseout();
 </script>
 </body>
 </html>
