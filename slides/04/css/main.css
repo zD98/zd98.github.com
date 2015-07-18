@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    color: #666;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    float: left;
+}
+
+h4 {
+    display: block;
+    -webkit-margin-before: 1.33em;
+    -webkit-margin-after: 1.33em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+#div1 {
+    position: absolute;
+    top: 100px;
+}
+
+.p1-ds {
+    width: 1040px;
+    height: 190px;
+    overflow: hidden;
+}
+
+.p1-ds-list {
+    position: relative;
+    width: 1560px;
+}
+
+.p1-ds-list > li {
+    width: 260px;
+    height: 140px;
+    padding-top: 50px;
+}
+
+.p1-ds-list .open {
+    width: 780px;
+}
+
+.open .p1-ds-item .name {
+    left: -30px;
+}
+
+.open .p1-ds-info {
+    display: block;
+}
+
+.p1-ds-row {
+    position: relative;
+    bottom: 0;
+}
+
+.p1-ds-item {
+    position: relative;
+    height: 140px;
+    background: url("../image/p1_ds_bg.jpg") no-repeat;
+}
+
+.p1-ds-item .name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100%;
+    margin: 0;
+}
+
+.p1-ds-item .pic {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+.p1-ds-item .name .text {
+    position: absolute;
+    width: 35px;
+    height: 86px;
+    left: 180px;
+    top: 30px;
+    text-indent: -9999px;
+    z-index: 2;
+}
+
+.p1-ds-item .name .line {
+    background: url("../image/p1_ds_line.png") no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-left: -40px;
+    z-index: 1;
+}
+
+.text-zjl {
+    background-image: url("../image/p1_text_zjl.png");
+}
+
+.text-ny {
+    background-image: url("../image/p1_text_ny.png");
+}
+
+.text-wf {
+    background-image: url("../image/p1_text_wf.png");
+}
+
+.text-ycq {
+    background-image: url("../image/p1_text_ycq.png");
+}
+
+.p1-ds-info {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 780px;
+    height: 140px;
+    background: #282832 url("../image/p1_ds_bg2.jpg") repeat-y;
+    z-index: 0;
+}
+
+.p1-ds-info .pic-bg {
+    z-index: 0;
+}
+
+.clear {
+    clear: both;
+}

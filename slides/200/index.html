@@ -3,9 +3,24 @@
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <title></title>
-
+    <link href="css/main.css" rel="stylesheet"/>
 </head>
 <body>
-
+<canvas id="myCanvas" style="border: 1px solid;"></canvas>
 </body>
+<script>
+    var c = document.getElementById("myCanvas");
+    var context = c.getContext("2d");
+    context.fillStyle = "#ff00ff";
+    context.fillRect(0, 0, 100, 10);
+
+    context.moveTo(0, 0);
+    context.lineTo(200, 100);
+    context.stroke();
+
+    context.beginPath();
+    context.arc(100, 75, 50, 0, 5, true);
+    context.closePath();
+    context.stroke();
+</script>
 </html>
