@@ -23,6 +23,7 @@ h4 {
     -webkit-margin-end: 0px;
     font-weight: bold;
     background-color: transparent;
+    margin: 0;
 }
 
 #div1 {
@@ -77,13 +78,14 @@ h4 {
     width: 260px;
     height: 100%;
     margin: 0;
+    z-index: 3;
 }
 
 .p1-ds-item .pic {
     position: absolute;
     left: 0;
     bottom: 0;
-    z-index: 2;
+    z-index: 5;
 }
 
 .p1-ds-item .name .text {
@@ -131,10 +133,46 @@ h4 {
     background: #282832 url("../image/p1_ds_bg2.jpg") repeat-y;
     z-index: 0;
 }
-
 .p1-ds-info .pic-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 0;
 }
+
+.p1-ds-info .con {
+    padding-left: 240px;
+    z-index: 5;
+    position: relative;
+    padding-top: 25px;
+}
+
+.p1-ds-info .con .summary {
+    color: #fff;
+    width: 400px;
+    font-size: 14px;
+    line-height: 23px;
+    margin-top: 15px;
+}
+
+.p1-ds-info .con .action {
+    position: absolute;
+    right: 20px;
+    top: 50px;
+    z-index: 6;
+}
+
+.p1-ds-info .con .p1-ds-btn {
+    display: inline-block;
+    width: 110px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, .5);
+    text-align: center;
+    color: #fff;
+}
+
 
 .clear {
     clear: both;
