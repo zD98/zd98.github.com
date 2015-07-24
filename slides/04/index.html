@@ -14,7 +14,7 @@
     <div class="p1-ds">
         <ul class="p1-ds-list">
             <!--780px 260px-->
-            <li class="open">
+            <li>
                 <div class="p1-ds-row">
                     <div class="p1-ds-item">
                         <span class="pic"><image src="image/ds_zjl.png"></image></span>
@@ -109,4 +109,40 @@
 
 </div>
 </body>
+<script>
+    function hasClass(obj, cls) {
+        return obj.className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"));
+    }
+    function addClass(obj, cls) {
+
+        if (!hasClass(obj, cls)) {
+            obj.className += " " + cls;
+        }
+    }
+    function removeClass(obj, cls) {
+        if (hasClass(obj, cls)) {
+            var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+            obj.className = obj.className.replace(reg, '');
+        }
+    }
+    var oDiv = document.getElementById("div1");
+    var oUl = oDiv.getElementsByClassName("p1-ds-list")[0];
+    var aLi = oUl.getElementsByTagName("li");
+    var aItem = oUl.getElementsByClassName("p1-ds-item");
+    for (var i = 0; i < aLi.length; i++) {
+        aLi[i].index = i;
+        aLi[i].onmouseover = function () {
+            if (this.index > 1) {
+                oUl.style.left = -260 * (this.index - 1) + "px";
+            }
+            addClass(this, "open");
+        };
+        aLi[i].onmouseout = function () {
+
+            oUl.style.left = "0px";
+
+            removeClass(this, "open")
+        };
+    }
+</script>
 </html>
