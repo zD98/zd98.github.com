@@ -73,7 +73,7 @@
                             <p class="summary">摇滚巨人，汪峰本季点评画风突变，“每天都有很多冠军，冠军并不值钱”一语惊人。</p>
 
                             <div class="action">
-                                <a>导师战队</a>
+                                <a class="p1-ds-btn">导师战队</a>
                             </div>
                         </div>
                         <div class="pic-bg">
@@ -95,7 +95,7 @@
                             <p class="summary">悍将归来，从不相信“信心”的庾澄庆坚信：选歌好坏是制胜的关键。</p>
 
                             <div class="action">
-                                <a>导师战队</a>
+                                <a class="p1-ds-btn">导师战队</a>
                             </div>
                         </div>
                         <div class="pic-bg">
@@ -110,6 +110,50 @@
 </div>
 </body>
 <script>
+    function getStyle(obj, name) {
+        if (obj.style[name]) {
+            return obj.style[name];
+        }
+        else if (obj.currentStyle) {
+            return obj.currentStyle[name];
+        } else {
+            return window.getComputedStyle(obj, null)[name];
+        }
+
+    }
+    function startMove(obj, arr, target, func) {
+
+        clearInterval(obj.timer);
+        var speed = null, cur = null;
+        if (arr == 'opacity') {
+            cur = parseFloat(getStyle(obj, arr)) * 100;
+        } else {
+            cur = parseInt(getStyle(obj, arr));
+        }
+        obj.timer = setInterval(function () {
+
+            speed = (target - cur) / 7;
+
+            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+            if (target == cur) {
+                clearInterval(obj.timer);
+                if (func) {
+                    func(obj, "open");
+                }
+            }
+            else {
+                cur += speed;
+                if (arr == "opacity") {
+                    obj.style[arr] = cur / 100;
+                } else {
+                    obj.style[arr] = cur + "px";
+                }
+            }
+        }, 30);
+
+
+    }
     function hasClass(obj, cls) {
         return obj.className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"));
     }
@@ -133,15 +177,18 @@
         aLi[i].index = i;
         aLi[i].onmouseover = function () {
             if (this.index > 1) {
-                oUl.style.left = -260 * (this.index - 1) + "px";
+//                oUl.style.left = -260 * (this.index - 1) + "px";
+                startMove(oUl, "left", -260 * (this.index - 1));
             }
+            startMove(this, "width", 780);
             addClass(this, "open");
         };
         aLi[i].onmouseout = function () {
 
-            oUl.style.left = "0px";
-
-            removeClass(this, "open")
+//            oUl.style.left = "0px";
+            startMove(oUl, "left", 0);
+            startMove(this, "width", 260);
+            removeClass(this, "open");
         };
     }
 </script>

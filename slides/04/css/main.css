@@ -40,6 +40,7 @@ h4 {
 .p1-ds-list {
     position: relative;
     width: 1560px;
+    left: 0;
 }
 
 .p1-ds-list > li {
@@ -49,7 +50,7 @@ h4 {
 }
 
 .p1-ds-list .open {
-    width: 780px;
+    /*width: 780px;*/
 }
 
 .open .p1-ds-item .name {
@@ -58,6 +59,7 @@ h4 {
 
 .open .p1-ds-info {
     display: block;
+    left: 0;
 }
 
 .p1-ds-row {
@@ -124,10 +126,10 @@ h4 {
 }
 
 .p1-ds-info {
-    display: none;
+    /*display: none;*/
     position: absolute;
     top: 0;
-    left: 0;
+    left: 40px;
     width: 780px;
     height: 140px;
     background: #282832 url("../image/p1_ds_bg2.jpg") repeat-y;
