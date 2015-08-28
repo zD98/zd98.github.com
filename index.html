@@ -1,151 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>zD98</title>
+    <title>zD98.io</title>
     <style>
-        body{background-color: #1e1e1e;}
-
-        .header {
-            width: 800px;
-            height: 200px;
-            margin: auto;
-            background-image: url('image/title.png');
-        }
-
-        ul {
-            position: relative;
-            list-style: none;
+        main {
+            width: 500px;
             margin: 0 auto;
-            padding: 0;
-        }
-
-        .nContainer {
-            width: 800px;
-            height: 80px;
-            background-color: black;
-        }
-
-        .nContainer li {
-            width: 33.33%;
-            height: 80px;
-            position: relative;
-            float: left;
             text-align: center;
-        }
-        .nContainer li:hover {
-            background-color: #222222;
-        }
-        a {
-            position: relative;
-            text-decoration: none;
-            color: #f9f9f9;
-            top: 30px;
-        }
-        a:hover {
-            color: #F4F4F4;
-        }
-        .mainContext {
-            width: 800px;
-            height: 600px;
-            background-color: #222222;
-            margin: 10px auto;
-        }
-
-        .footer {
-            width: 800px;
-            height: 100px;
-            background-color: #222222;
-            margin: 10px auto;
-        }
-
-        .slides {
-            position: relative;
-            width: 800px;
-            background-color: #222222;
-            margin: 0 auto;
-        }
-
-        .list {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 800px;
-            height: 400px;
-            display: none;
-            background-color: #111111;
-            color: #d2d2d2;
-        }
-
-        .list li {
-            margin: 10px;
-            color: #fff;
-            float: left;
-        }
-
-        .list li:hover {
-            color: #d2d2d2;
         }
     </style>
 </head>
 <body>
 <div id="main">
-    <div class="header"></div>
-    <div class="navigation">
-        <ul class="nContainer">
-            <li><a href="javascript:void(0)">原生JS</a></li>
-            <li><a href="javascript:void(0)">jQuery</a></li>
-            <li><a href="javascript:void(0)">HTML5/CSS3</a></li>
-        </ul>
-    </div>
-    <div class="slides">
-        <div id="js" class="list">
-            <h3>javascript</h3>
-            <ul>
-                <li><a href="slides/00" target="_blank">仿-英雄联盟选项卡</a></li>
-                <li><a href="slides/01" target="_blank">仿-淘宝轮转</a></li>
-                <li><a href="slides/04" target="_blank">仿-中国好声音</a></li>
-                <li><a href="slides/02" target="_blank">仿-登陆弹出层</a></li>
-            </ul>
-        </div>
-        <div id="jq" class="list">
-            <h3>jquery</h3>
-        </div>
-        <div id="hc" class="list">
-            <h3>html/css</h3>
-            <ul>
-                <li><a href="http://zd98.github.io/ife_Spring" target="_blank">ife_Spring</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="mainContext">
-
-    </div>
-    <div class="footer">
-        <ul class="fContainer">
-            <li><a>联系我</a></li>
-        </ul>
-    </div>
+    <ul>
+        <li>项目源码</li>
+        <li>前端框架</li>
+        <li>Node.Js</li>
+        <li>布局练习</li>
+        <li>JavaScript练习</li>
+    </ul>
 </div>
-<script>
-    var oDiv = document.getElementById("main");
-    var aLi = oDiv.getElementsByClassName("nContainer")[0].getElementsByTagName("li");
-    var list = oDiv.getElementsByClassName("list");
-    for (var i = 0, max = aLi.length; i < max; i++) {
-        aLi[i].index = i;
-        aLi[i].onmouseover = function () {
-            list[this.index].style.display = "block";
-            list[this.index].onmouseover = function () {
-                this.style.display = "block";
-            };
-        };
-        aLi[i].onmouseout = function () {
-            list[this.index].style.display = "none";
-            list[this.index].onmouseout = function () {
-                this.style.display = "none";
-            };
-        }
-    }
-</script>
 </body>
 </html>
