@@ -1,0 +1,34 @@
+.wrapper {
+
+    font-size: 14px;
+    width: 92em;
+    margin: 0 auto;
+    background: #eee;
+    text-align: left;
+}
+
+.content .primary {
+    width: 72.82%;
+    /*padding-right: 20px;*/
+    float: right;
+    display: inline;
+}
+
+.content .secondary {
+    width: 25%;
+    float: left;
+    display: inline;
+}
+
+.content .primary .primary {
+    width: 59.7%;
+    float: left;
+    display: inline;
+}
+
+.content .primary .secondary {
+    width: 34.33%;
+    padding-right: 2em;
+    float: right;
+    display: inline;
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双飞翼布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrapper {
+            width: 100%;
+            border: 1px solid #000;
+        }
+
+        .header {
+            width: 100%;
+            height: 80px;
+            background: #aaa;
+        }
+
+        .footer {
+            width: 100%;
+            height: 80px;
+            background: #aaa;
+        }
+
+        .content {
+            background: #eee;
+            overflow: hidden;
+        }
+
+        /*.content:after{content:""; width: 0;display: block;clear: both;}*/
+        .content .main {
+            float: left;
+            width: 100%;
+        }
+
+        .content .main-wrap {
+            margin: 0 220px -2000px 200px;
+            background: #666;
+            padding-bottom: 2000px;
+        }
+
+        .content .sub {
+            background: #888;
+            float: left;
+            width: 200px;
+            margin-left: -100%;
+            padding-bottom: 2000px;
+            margin-bottom: -2000px;
+        }
+
+        .content .extra {
+            background: #888;
+            float: left;
+            width: 220px;
+            margin-left: -220px;
+            padding-bottom: 2000px;
+            margin-bottom: -2000px;
+        }
+
+        .summary {
+            margin-left: 20px;
+        }
+
+        .summary p {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="wrapper">
+    <div class="header">
+        <h1>Header</h1>
+    </div>
+    <div class="content">
+        <div class="main">
+            <div class="main-wrap">
+                <h1>Middle</h1>
+
+                <h2>10 Reasons To Love An Empowered Woman</h2>
+
+                <p>&nbsp;&nbsp;If you are looking for someone you can pour out your love to, let me suggest the
+                    empowered woman. The empowered woman knows what she wants, knows how to get it, knows how to live
+                    fully, and she knows how to love you back without needing anyone’s approval or recognition.
+                    <br/>&nbsp;&nbsp;An empowered woman is unarguably one of the most magnificent beings you will ever
+                    come in contact with.
+                    <br/>&nbsp;&nbsp;Read on and find 10 reason why you should absolutely love and embrace the empowered
+                    women in your life! .</p>
+
+            </div>
+        </div>
+        <div class="sub">
+            <h3>Left</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Clients</a></li>
+                <li><a href="#">Case Studies</a></li>
+            </ul>
+        </div>
+        <div class="extra">
+            <h3>Right</h3>
+            <input type="text"/>
+
+            <p>&nbsp;&nbsp;An empowered woman is unarguably one of the most magnificent beings you will ever come in
+                contact with.</p>
+        </div>
+    </div>
+    <div class="footer">
+        <h1>Footer</h1>
+    </div>
+</div>
+
+<div class="summary">
+    <h1>总结</h1>
+
+    <p>1.margin-left:-100%;100%这个值是基于父级元素的宽度, 所以定位会定到父级元素内的左边</p>
+
+    <p>2.Sub通过margin-left 定位到了父级元素左边, 但是其在文件流位置依然是在Main后边, 所以Main float:left 是在content的左边</p>
+
+    <p>3.main-wrapper 的作用是将Main里面的东东加上margin-left, margin-right 是其在中间表现出来</p>
+
+    <p>4.margin负值用来定位时(margin-left, top), 就是让元素相对于文档流的位置移动margin-left</p>
+
+    <p>5.margin其他方向(margin-right, bottom)是用来改变自身所占文档流位置大小的</p>
+
+    <p>差不多是这样吧 有问题再修改</p>
+</div>
+</body>
+</html>

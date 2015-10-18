@@ -1,0 +1,38 @@
+/*reset*/
+/**{margin: 0;padding: 0;}
+ul {list-style: none;}*/
+
+/*ÕûÌå¾ÓÖĞ*/
+
+.wrapper {
+    width: 920px;
+    margin: 0 auto;
+    background: #eee;
+}
+
+.content .primary {
+    width: 670px;
+    padding-right: 20px;
+    float: right;
+    display: inline;
+}
+
+.content .secondary {
+    width: 230px;
+    float: left;
+    display: inline;
+}
+
+.content .primary .primary {
+    width: 400px;
+    float: left;
+    display: inline;
+}
+
+.content .primary .secondary {
+    width: 230px;
+    padding-right: 20px;
+    float: right;
+    display: inline;
+}
+

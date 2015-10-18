@@ -1,0 +1,15 @@
+.wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.box {
+    width: 250px;
+    margin-left: 20px;
+    float: left;
+    display: inline;
+    padding: 20px 20px 500px 20px;
+    margin-bottom: -500px;
+    background: #ccc;
+
+}

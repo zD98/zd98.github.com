@@ -1,0 +1,71 @@
+/*
+一般性样式
+    主体样式
+    reset样式
+    链接
+    标题
+    其他元素
+辅助样式
+    表单
+    通知和错误
+    一致的条目
+页面结构
+    标题、页脚、导航
+    布局、
+    其他页面结构元素
+页面组件
+    各个页面
+覆盖
+*/
+body {
+    font-size: 1.4em;
+}
+
+ul {
+    list-style: none;
+}
+
+.hide .tri {
+    width: 0;
+    height: 0;
+    border-left: 20px solid #f00;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+.show .tri {
+    width: 0;
+    height: 0;
+    border-top: 20px solid #f00;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+.parent-nav {
+    padding: 10px;
+    margin: 10px;
+}
+
+.parent-nav > li {
+    width: 150px;
+    height: 30px;
+    float: left;
+    border-radius: 25px;
+    border: 1px solid #000;
+    margin: 10px;
+}
+
+.hide .child-nav {
+    display: none;
+}
+
+.child-nav {
+}
+
+.child-nav li {
+    width: 100px;
+    height: 20px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 1px solid #1e1e1e;
+}
