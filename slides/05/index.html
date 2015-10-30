@@ -23,6 +23,10 @@
             <span>邮箱格式:</span>
             <input id="email" type="text" onblur="emailCheck()"/>
         </li>
+        <li>
+            <span>去除括号:</span>
+            <input id="symbol" type="text" onblur="replaceSymbol()"/>
+        </li>
     </ul>
 </div>
 <script>
@@ -44,6 +48,13 @@
         }
     }
 
+    function replaceSymbol() {
+        var symbol = document.getElementById("symbol");
+        symbol.value = symbol.value.replace(new RegExp('\\(|\\)|\\\\'), '');
+    }
+    var str = "onStop()";
+    var nStr = str.replace('\(\)', '');
+    console.log(nStr);
 </script>
 </body>
 </html>

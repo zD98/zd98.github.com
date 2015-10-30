@@ -1,0 +1,245 @@
+
+.d-topbar {
+    margin: 0 auto;
+    width: 100%;
+    font-size: 12px;
+}
+
+.d-topbar em {
+    font-size: 12px;
+}
+
+.z-nav a, .z-nav em, .logo a, .z-top, .z-nav a sub, .z-nav li .hot, .z-srh .srh-bg, .z-msg, .z-tophead, .z-tophead .name {
+    background: url(../image/topbar.png) no-repeat 0 -99999px;
+}
+
+.z-top {
+    width: 100%;
+    height: 70px;
+    overflow: hidden;
+    background-position: 0 -80px;
+    background-repeat: repeat-x;
+}
+
+.z-top .wrap {
+    margin: 0 auto;
+    width: 980px;
+}
+
+.z-top .wrap .logo {
+    display: inline-block;
+    float: left;
+}
+
+.z-top .wrap .logo a {
+    display: block;
+    width: 157px;
+    height: 33px;
+    text-indent: -3000px;
+    padding: 22px 18px 0 0;
+    background-position: 0 13px;
+}
+
+.z-top .wrap .z-nav {
+    display: inline-block;
+    float: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.z-top .wrap .z-nav li {
+    float: left;
+    position: relative;
+}
+
+.z-top .wrap .z-nav a, a:link {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    height: 70px;
+    line-height: 70px;
+    padding-left: 2px;
+    position: relative;
+}
+
+.z-top .wrap .z-nav a:hover {
+    background-position: 0 -471px;
+    margin: 0 -1px;
+}
+
+.z-top .wrap .z-nav a em {
+    padding: 0 20px 0 18px;
+    height: 70px;
+}
+
+.z-top .wrap .z-nav a:hover em {
+    display: block;
+    padding: 0 21px 0 19px;
+    background-position: right -471px;
+}
+
+.z-top .wrap .z-nav a sub {
+    display: none;
+}
+
+.z-top .wrap .z-nav li.lst a em {
+    padding: 0 40px 0 18px;
+}
+
+.z-top .wrap .z-nav li.lst a:hover em {
+    padding: 0 41px 0 19px;
+}
+
+.z-top .wrap .z-nav li .hot {
+    position: absolute;
+    top: 23px;
+    left: 79px;
+    background-position: top 0 left -190px;
+    width: 26px;
+    height: 19px;
+}
+
+/*.z-top .wrap .z-nav .selected div{margin: 0 -2px;}*/
+.z-top .wrap .z-nav .selected a {
+    background-position: left 0 top -155px;
+    margin: 0 -1px;
+}
+
+.z-top .wrap .z-nav .selected a em {
+    display: block;
+    padding: 0 21px 0 19px;
+    background-position: right -155px;
+}
+
+.z-top .wrap .z-nav .selected.lst a em {
+    padding: 0 41px 0 19px;
+}
+
+/*margin-left -7  绝对定位 中心 */
+.z-top .wrap .z-nav .selected a sub {
+    position: absolute;
+    display: block;
+    width: 15px;
+    line-height: 9px;
+    background-position: left -225px top 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -7px;
+}
+
+.z-top .wrap .z-srh {
+    display: inline-block;
+    float: left;
+    margin-left: 38px;
+}
+
+.z-top .wrap .z-srh .srh-bg {
+    width: 210px;
+    height: 31px;
+    background-position: left 0 top -550px;
+    margin-top: 21px;
+}
+
+.z-top .wrap .z-srh .srh-bg input {
+    border: 0;
+    width: 80%;
+    background: transparent;
+    margin: 8px 0 0 33px;
+}
+
+.z-top .wrap .z-srh .srh-bg input:focus {
+    outline: none;
+}
+
+.z-top .wrap .z-msg {
+    margin: 17px 0 0 38px;
+    display: block;
+    overflow: hidden;
+    float: left;
+    width: 34px;
+    height: 28px;
+    background-position: left 0 top -50px;
+}
+
+.z-top .wrap .z-msg:hover {
+    background-position: left -60px top -50px;
+}
+
+.z-top .wrap .z-tophead {
+    float: left;
+    background-position: right 0 top -367px;
+    margin: 21px 0 0 15px;
+    padding-right: 18px;
+}
+
+.z-top .wrap .z-tophead:hover {
+    background-position: right 0 top -405px;
+}
+
+.z-top .wrap .z-tophead:hover a {
+    color: #c5c5c5;
+}
+
+.z-top .wrap .z-tophead .head {
+    float: left;
+}
+
+.z-top .wrap .z-tophead .name {
+    margin: 0 0 0 38px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.z-top .wrap .z-tophead .z-tlist {
+    display: none;
+}
+
+.d-top, .d-nav, .d-nav a, .d-nav a em {
+    background: url(../image/topbar.png) 0 -99999px no-repeat;
+}
+
+.d-top {
+    background-position: 0 -231px;
+    background-repeat: repeat-x;
+    height: 35px;
+}
+
+.d-top .wrap {
+    margin: 0 auto;
+    width: 804px;
+    padding-left: 176px;
+}
+
+.d-top .wrap .d-nav {
+    overflow: hidden;
+}
+
+.d-top .wrap .d-nav li {
+    height: 35px;
+    line-height: 35px;
+    float: left;
+    margin: 0 17px;
+    overflow: hidden;
+}
+
+.d-top .wrap .d-nav a {
+    padding-left: 14px;
+    color: #fff;
+    height: 35px;
+    line-height: 35px;
+}
+
+.d-top .wrap .d-nav a em {
+    padding-right: 14px;
+    display: block;
+    height: 35px;
+    line-height: 35px;
+}
+
+.d-top .wrap .d-nav .selected a, a:hover {
+    background-position: left 0 top -269px;
+}
+
+.d-top .wrap .d-nav .selected a em, a:hover em {
+    background-position: right 0 top -269px;
+}
