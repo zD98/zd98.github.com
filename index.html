@@ -3,44 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <title>zD98.io</title>
+    <link rel="stylesheet" href="/css/normalize.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700"/>
     <style>
-        main {
-            width: 500px;
-            margin: 0 auto;
+        html, body {
+            overflow: hidden;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', 'Helvetica Neue', 'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
+            color: #333;
+        }
+
+        .wrap {
+            position: absolute;
             text-align: center;
+            top: 50%;
+            left: 50%;
+            margin-left: -161px;
+            margin-top: -131px;
+        }
+
+        h1 {
+            font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 30px;
+            letter-spacing: 9px;
+            text-transform: uppercase;
+            margin: 12px 0;
+            left: 4px;
+        }
+
+        h2 {
+            color: #999;
+            font-weight: normal;
+            font-size: 15px;
+            letter-spacing: .12em;
+            margin-bottom: 30px;
+            left: 3px;
+        }
+
+        h1, h2 {
+            position: relative;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 2em;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        a {
+            color: #999;
+            text-decoration: none;
+            transition: color .2s ease;
+        }
+
+        a:hover {
+            color: #f33;
         }
     </style>
 </head>
 <body>
-<div id="main">
-    <ul>
-        <li>项目源码</li>
-        <li>前端框架</li>
-        <li>Node.Js</li>
-        <li>
-            <div>
-                <h2>HTML/CSS练习</h2>
-                <ul>
-                    <li><a href="http://zhendongwang.com/ife_Spring">ife-spring</a></li>
-                    <li><a href="slides/00">选项卡</a></li>
-                    <li><a href="slides/01">轮播图</a></li>
-                    <li><a href="slides/04">好声音</a></li>
-                    <li><a href="slides/07">css三角</a></li>
-                    <li><a href="slides/08">布局</a></li>
-                    <li><a href="slides/10">网易云音乐TopBar</a></li>
-                </ul>
-            </div>
-        </li>
-        <li>
-            <div>
-                <h2>JavaScript练习</h2>
-                <ul>
-                    <li><a href="slides/02">弹出层</a></li>
-                    <li><a href="slides/05">输入处理</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
+<div class="wrap">
+    <h1>ZD98</h1>
+
+    <h2>Web Front-End Designer & Developer</h2>
+
+    <p><a href="">GitHub</a></p>
+
+    <p><a href="">Slides</a></p>
+
+    <p><a href="">CV</a></p>
+
+    <p><a href="">Email</a></p>
 </div>
+<canvas></canvas>
+
+<script>
+    var canvas = document.getElementsByName('canvas')[0];
+    var ctx = canvas.getContext('2d');
+</script>
 </body>
 </html>
