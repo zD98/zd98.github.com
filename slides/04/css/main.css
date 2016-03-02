@@ -7,6 +7,10 @@ html {
     color: #666;
 }
 
+body {
+    position: relative;
+    text-align: center;
+}
 ul {
     list-style: none;
 }
@@ -27,7 +31,8 @@ h4 {
 }
 
 #div1 {
-    position: absolute;
+    margin-left: 100px;
+    position: relative;
     top: 100px;
 }
 

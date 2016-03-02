@@ -1,4 +1,7 @@
-
+body {
+    text-align: center;
+    color: #666;
+}
 ul {
     list-style: none;
 }
@@ -61,7 +64,7 @@ h2 {
 }
 span {
     position: relative;
-    top: 13px;
+    top: 10px;
     color: aliceblue;
     font-size: 14px;
     text-align: center;

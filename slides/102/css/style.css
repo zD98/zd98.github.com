@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 16px;
+    padding: 5px;
+    line-height: 11px;
+}
+
+a, a:link, a:visited {
+    color: blue;
+}
+
+.wrap {
+    width: 500px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.5em;
+    /* = 40px/16px */
+    line-height: 1.1em;
+    /* = 44px/40px*/
+    margin-bottom: 22px;
+}
+
+h2 {
+    font-size: 1.625em;
+    /* 26px/16px  »Æ½ð±È*/
+    line-height: 1.2692307692307692em;
+    margin-bottom: 22px;
+}
+
+p {
+    font-size: 0.875em;
+    /* = 14px/16px*/
+    line-height: 1.5714285714285714em;
+    /* = 22px/14px*/
+    margin-bottom: 22px;
+}

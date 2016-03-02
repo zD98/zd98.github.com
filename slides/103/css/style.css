@@ -1,0 +1,41 @@
+
+a, a:link, a:visited {
+    color: blue;
+}
+
+.wrap {
+    min-width: 600px;
+    max-width: 1000px;
+    overflow: hidden;
+    margin: 60px auto;
+}
+
+.wrap a {
+    float: left;
+    width: 25%;
+}
+
+.icon {
+    display: block;;
+    width: 140px;
+    height: 140px;
+    background: #c8c8c8 url("../image/icons-verify-type.png") no-repeat;
+    transition: background-color .2s;
+}
+
+.icon-2 {
+    background-position: 0 -140px;
+}
+
+.icon-3 {
+    background-position: 0 -280px;
+}
+
+.icon-4 {
+    background-position: 0 -420px;
+}
+
+a:hover .icon {
+    background-color: #666;
+}
+

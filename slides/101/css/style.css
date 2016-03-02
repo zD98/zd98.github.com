@@ -1,0 +1,48 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    text-align: center;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.wrap {
+    position: relative;
+    margin: 0 auto;
+}
+
+a {
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 9px;
+    text-align: center;
+}
+
+.up {
+    width: 0;
+    position: absolute;
+    right: 4px;
+    height: 2px;
+    background: #333;
+    transition: width 1.5s;
+}
+
+.down {
+    width: 0;
+    position: absolute;
+    left: -4px;
+    height: 2px;
+    background: #333;
+    transition: width 1.5s;
+}
+
+.wrap:hover .up, .wrap:hover .down {
+    width: 110px;
+}

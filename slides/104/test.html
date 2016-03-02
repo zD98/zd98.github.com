@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #parent {
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            background-color: #999999;
+        }
+
+        #child {
+            position: relative;
+            width: 150px;
+            height: 100px;
+            margin: 50px auto;
+            background-color: #333;
+        }
+
+        /*
+            子元素 margin  父元素跳出文档流才可以？
+            貌似是因为margin collapsing Parent and first/last child
+            Parent 和 child 的 margin 融合了  所以出现bug
+            Parent absolute 跳出文档流,  margin
+        */
+    </style>
+</head>
+<body>
+
+<div id="parent">
+    <div id="child">
+        <a id="alink" target="_blank">Test</a>
+    </div>
+</div>
+<script>
+    var parent = document.getElementById('parent');
+    var child = document.getElementById('child');
+    //        Dom0
+    //        child.onclick = function(){
+    //            alert('DOM0'+this.id);
+    //        };
+    //        parent.onclick = function(){
+    //            alert('DOM0'+this.id);
+    //        };
+
+    //        DOM2   FF与chrome与IE8+ Edge  捕获与冒泡
+    //        child.addEventListener('click',function(){
+    //            alert(this.id);
+    //        },true);
+    //        parent.addEventListener('click',function(){
+    //            alert(this.id);
+    //        },true);
+    //        child.addEventListener('click',function(){
+    //            alert(this.id);
+    //        });
+    //
+    //        parent.addEventListener('click',function(){
+    //            alert(this.id);
+    //        });
+
+
+    //        DOM2 添加多个事件处理
+    //        parent.addEventListener('click', function(){
+    //            alert('parent1');
+    //        });
+    //        parent.addEventListener('click', function(){
+    //            alert('parent2');
+    //        });
+    //        parent.onclick = function(){
+    //            alert('parent');
+    //        };
+    //        parent.addEventListener('click', function(){
+    //            alert('parent3');
+    //        })
+
+    //        DOM2 IE
+    //        最新版本 IE11 使用了addEventListener  不向下兼容  取消了attachEvent
+    //        10 以下 是可以用attachEvent  不过好像是添加到了冒泡阶段啊
+
+    //        parent.attachEvent('onclick',function(){
+    //        console.log(this);
+    //        alert('parent1');
+    //        });
+    //        parent.attachEvent('onclick',function(){
+    //            console.log(this);
+    //            alert('parent2');
+    //        });
+
+    //
+    //        child.attachEvent('onclick',function(){
+    //            console.log(this);
+    //            alert('child');
+    //        })
+
+    //        parent.attachEvent('onclick',function(){
+    //        console.log(this);
+    //        alert('parent1');
+    //        });
+    //        parent.attachEvent('onclick',function(){
+    //        console.log(this);
+    //        alert('parent2');
+    //        });
+    //        parent.attachEvent('onclick',function(){
+    //        console.log(this);
+    //        alert('parent3');
+    //        });
+
+    //        8以下是srcElement  9以上都有targetl了
+    //        8以下用attachElement 9以上都用addEventListener
+    function getEventTarget(event) {
+        event = event || window.event;
+        return event.target || event.srcElement;
+    }
+
+    if (!!parent.addEventListener) {
+        parent.addEventListener('click', function (event) {
+            console.log(event.currentTarget);
+            console.log(event);
+        })
+    } else {
+        parent.attachEvent('onclick', function (event) {
+            console.log('IE8', event);
+        });
+    }
+
+    var alink = document.getElementById('alink');
+    //        IE 不支持 preventBubble  支持preventDefaule
+    //        IE8 DOM0  on+type window.event
+
+    alink.onclick = function (e) {
+//            console.log(window.event);
+        e.stopPropagation();
+        console.log(e);
+//      IE8以下不行      e.preventDefault();
+//      IE 没有      e.preventBubble();
+//            e.returnValue = false;
+    };
+    var EventUtil = {
+        addListener: function (ele, type, listener) {
+            if (!!ele.addEventListener) {
+                ele.addEventListener(type, listener, false);
+            } else if (ele.attachEvent) {
+                ele.attachEvent('on' + type, listener);
+            } else {
+                ele["on" + type] = listener;
+            }
+        },
+        removeListener: function (ele, type, listener) {
+            if (ele.removeEventListener) {
+                ele.removeEventListener(type, listener, false);
+            } else if (ele.detachEvent) {
+                ele.detachEvent('on' + type, listener);
+            } else {
+                ele["on" + type] = null;
+            }
+        },
+
+        getEvent: function (event) {
+            return event ? event : window.event;
+        },
+        getTarget: function (event) {
+            return event.target || event.srcElement;
+        },
+
+        preventDefault: function (event) {
+            if (!!event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+        },
+
+        stopPropagation: function (event) {
+            if (!!event.stopPropagation) {
+                event.stopPropagation();
+            } else {
+                event.cancelBubble = true;
+            }
+        },
+        getRelatedTarget: function (event) {
+            if (event.relatedTarget) {
+                return event.relatedTarget;
+            } else if (event.toElement) {
+                return event.toElement;
+            } else if (event.fromElement) {
+                return event.fromElement;
+            } else {
+                return null;
+            }
+        },
+        getWheelDalta: function (event) {
+            if (event.wheelDelta) {
+                return event.wheelDelta;
+            } else {
+                return -event.detail * 40
+            }
+        },
+        getCharCode: function (event) {
+            if (typeof event.charCode == 'number') {
+                return event.charCode;
+            } else {
+                return event.keyCode;
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
