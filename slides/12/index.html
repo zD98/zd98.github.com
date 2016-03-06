@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS居中</title>
+    <style>
+        .parent {
+            width: 300px;
+            height: 200px;
+            background: #4183C4;
+            text-align: center;
+            margin: 50px;;
+        }
+
+        .child {
+            background: #aa5555;
+        }
+
+        .p1 {
+
+        }
+
+        .c1 {
+            padding-top: 88px;
+            height: 24px;
+            line-height: 24px;
+            padding-bottom: 88px;
+        }
+
+        .c2 {
+            height: 0;;
+            line-height: 200px;
+        }
+
+        .p3 {
+            display: table;
+        }
+
+        .c3 {
+
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .p4 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /*container must have a fixed height*/
+            /*resize: vertical;*/
+        }
+
+        .p5 {
+            position: relative;
+
+        }
+
+        .c5 {
+            position: absolute;
+            top: 50%;
+            height: 100px;
+            margin-top: -50px;
+            line-height: 100px;
+        }
+
+        .p6 {
+            position: relative;
+        }
+
+        .c6 {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .p7 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<!--<div style="width: 100px; height: 100px;">-->
+<!--<div style="margin: 0 auto; width: 20px;">-->
+<!--TEST-->
+<!--</div>-->
+<!--</div>-->
+<div class="parent p1">
+    <p class="child c1">
+        Padding Way
+    </p>
+</div>
+<div class="parent p2">
+    <p class="child c2">
+        line-height way
+    </p>
+</div>
+<div class="parent p3">
+    <p class="child c3">
+        table way <br/>
+        Text Here
+    </p>
+</div>
+<div class="parent p4">
+    <p class="child c4">
+        Flex way
+    </p>
+</div>
+
+<div class="parent p5">
+    <div class="child c5">
+        Block Height
+    </div>
+</div>
+
+<div class="parent p6">
+    <div class="child c6">
+        Block No-Height
+    </div>
+</div>
+
+<div class="parent p7">
+    <div class="child c7">
+        Block Flex
+    </div>
+</div>
+</body>
+</html>

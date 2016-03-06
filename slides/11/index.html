@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var promise = new Promise(function (resolve, reject) {
+        alert(7);
+        //throw new Error('test');
+        // QA: 继续执行的同步任务 3s   异步执行的任务1s  那 同步执行结束后, 立即执行异步
+
+
+        setTimeout(resolve, 1000, '10');
+        alert('setTimeout');
+//        resolve(10);
+    })
+    //    同步延时测试
+    //    for(var i = 0;i<50000;i++){
+    //        console.log(i);
+    //    }
+    promise.then(function (i) {
+//        var promise = new Promise(function(resoleve){
+//           setTimeout(function(){
+//               resoleve(1);
+//           }, 2000)
+//        });
+        //throw new Error('test');
+        alert(i);
+        return 1;
+        //理论上都是返回一个新promise 1. 如果直接返回值, 下一个then 传入值, 2. 如果直接返回promise ,下一个then 等待返回promise的状态结束后调用
+//        return promise;
+    }).then(function (i) {
+        alert(i);
+    }).catch(function (error) {
+        alert(error);
+    }).then(function () {
+        alert('go on');
+    });
+    alert('result');
+    //Promise.all();
+    //Promise.race()
+</script>
+
+</body>
+</html>

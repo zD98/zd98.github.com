@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        h1 {
+            color: #ff3333;
+        }
+
+        h2 {
+            color: #4183C4;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Test JS 1</h1>
+
+
+<h2>Test JS 2</h2>
+<script>
+    function Foo() {
+        getName = function () {
+            alert(1);
+        };
+        return this;
+    }
+    Foo.getName = function () {
+        alert(2);
+    };
+    Foo.prototype.getName = function () {
+        alert(3);
+    };
+    var getName = function () {
+        alert(4);
+    };
+    function getName() {
+        alert(5);
+    }
+
+    //请写出以下输出结果：
+    Foo.getName();
+    getName();
+    Foo().getName();
+    getName();
+    new Foo.getName();
+    new Foo().getName();
+    new new Foo().getName();
+</script>
+</body>
+</html>
