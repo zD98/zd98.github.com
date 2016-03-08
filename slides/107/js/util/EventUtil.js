@@ -4,9 +4,13 @@
 
 var EventUtil = {
 
-  addListener: function (ele, type, callback) {
+  addListener: function (ele, type, callback, useCapture) {
+    if (!useCapture) {
+      useCapture = false;
+    }
+
     if (ele.addEventListener) {
-      ele.addEventListener(type, callback, false);
+      ele.addEventListener(type, callback, useCapture);
     } else if (ele.attachEvent) {
       ele.attachEvent("on" + type, callback)
     } else {

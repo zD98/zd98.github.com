@@ -8,89 +8,50 @@
 
 function DDContainer() {
 
-  var dragging = null,
-    diffX = 0,
-    diffY = 0,
-    element = null;
-  var _this = this;
+  var element = null;
 
-  function _init() {
-
-    if (element.className.indexOf("dd-container") == -1) {
-      element.className += " dd-container";
-    }
-    EventUtil.addListener(element, 'mousedown', _handleEvent);
-    EventUtil.addListener(element, 'mousemove', _handleEvent);
-    EventUtil.addListener(element, 'mouseup', _handleEvent);
-  }
-
-
-  function _handleEvent(event) {
-    event = EventUtil.getEvent(event);
-    var target = EventUtil.getTarget(event);
-
-    switch (event.type) {
-      case "mousedown":
-        if (target.className.indexOf("draggable") > -1) {
-          dragging = target;
-          diffX = event.clientX - target.offsetLeft;
-          diffY = event.clientY - target.offsetTop;
-        }
-        break;
-      case "mousemove":
-        if (dragging !== null) {
-          dragging.style.left = (event.clientX - diffX) + "px";
-          dragging.style.top = (event.clientY - diffY) + "px";
-        }
-        break;
-      case "mouseup":
-        if (dragging !== null) {
-          dragging = null;
-        }
-        //addItem
-        //removeItem
-        break;
-    }
-  }
 
   return {
+    left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
+
     start: function (ele) {
       if (ele !== undefined) {
         element = ele;
       } else {
         element = document.createElement('div');
       }
-      _init();
+      DDManager.addContainer(this);
+      this._init();
     },
+    _init: function () {
+      element.classList.add('dd-container');
+
+      this.left = element.offsetLeft;
+      this.top = element.offsetTop;
+      var width = element.offsetWidth;
+      var height = element.offsetHeight;
+      this.right = this.left + width;
+      this.bottom = height + this.top;
+    }
+    ,
     getElement: function () {
       return element;
     },
-    addItem: function () {
+    addItem: function (item) {
 
+      element.appendChild(item.element);
     },
-    removeItem: function () {
-
+    removeItem: function (item) {
+      element.removeChild(item);
     },
     destroy: function () {
 
     }
   };
 }
-
-
-//function DDContainer(ele){
-//  if(this instanceof  DDContainer){
-//    if(ele !== undefined&&ele.nodeType) {
-//      this.ele = ele;
-//      this.dragging = null;
-//      this.diffX = 0;
-//      this.diffY = 0;
-//    }
-//  }else{
-//    return new DDContainer(ele);
-//  }
-//}
-
 
 DDContainer.prototype.addItem = function () {
 
@@ -99,4 +60,5 @@ DDContainer.prototype.addItem = function () {
 DDContainer.prototype.removeItem = function () {
 
 };
+
 
