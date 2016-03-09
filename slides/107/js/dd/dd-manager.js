@@ -4,7 +4,7 @@
 
 var DDManager = (function () {
 
-
+  //Manager 太复杂了  加一个  topic  传送消息   container 负责  处理  container  item 负责处理item  manager负责管理拖拽的
   var dragging = null,
     diffX = 0,
     diffY = 0,
@@ -44,6 +44,8 @@ var DDManager = (function () {
       dragging = target;
       diffX = event.clientX - dragging.offsetLeft;
       diffY = event.clientY - dragging.offsetTop;
+
+      target.style.position = "absolute";
     }
 
 
@@ -67,6 +69,14 @@ var DDManager = (function () {
   }
 
   function mouseStop(event, item) {
+
+    // ToDO: 通过移除类改变
+    event = EventUtil.getEvent(event);
+    var target = EventUtil.getTarget(event);
+
+    dragging.style.position = "relative";
+    dragging.style.left = "0";
+    dragging.style.top = "0";
     _drop(event, item);
   }
 

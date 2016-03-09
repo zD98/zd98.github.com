@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #drag1 {
+            width: 300px;
+            height: 300px;
+            background-color: #4183C4;
+        }
+
+        #drag2 {
+            width: 300px;
+            height: 300px;
+            background-color: #ff3333;
+        }
+
+        .dd-item {
+            position: relative;
+            background: #99ee33;
+            width: 280px;
+            margin: 10px;;
+        }
+    </style>
+    <script src="js/util/EventUtil.js"></script>
+    <script src="js/dd/dd-manager.js"></script>
+    <script src="js/dd/dd-container.js"></script>
+    <script src="js/dd/dd-item.js"></script>
+</head>
+<body>
+<div id="drag1">
+    <div class="dd-item">DRAG</div>
+    <div class="dd-item">DRAG</div>
+    <div class="dd-item">DRAG</div>
+    <div class="dd-item">DRAG</div>
+</div>
+<div id="drag2">
+</div>
+<script>
+
+    var drag1 = document.getElementById('drag1');
+    var drag2 = document.getElementById('drag2');
+
+    var container1 = new DDContainer();
+    container1.start(drag1);
+
+    var container2 = new DDContainer();
+    container2.start(drag2);
+
+    var item = document.getElementById('dd-item');
+    var dditem = new DDItem();
+    dditem.start(item);
+</script>
+</body>
+</html>
