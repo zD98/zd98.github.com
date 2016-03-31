@@ -5,8 +5,21 @@
     <title></title>
     <style>
         body {
+            position: absolute;
             background: #fff;
             font-size: 10px;
+            color:#333;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .wrap{
+            position: absolute;
+            left: 50%;
+            top: 30%;
+            transform: translate(-50%,-50%);
+            text-align: center;
         }
         a,a:link,a:visited{
             color: blue;
@@ -15,11 +28,18 @@
         a:hover{
             text-decoration: underline ;
         }
+        h2{
+            line-height: 26px;
+        }
     </style>
 </head>
 <body>
-<h2>Slides 还在更新中~~</h2>
-<h2>JS设计模式总结 - <a href="https://gist.github.com/zD98">在这在这</a></h2>
+<div class="wrap">
+    <h2>Slides 还在更新中~~</h2>
+    <h2>JS设计模式总结 - <a href="https://gist.github.com/zD98">在这在这</a></h2>
+    <h2>WebGL Shaders 从零到光照部分 - <a href="http://zhendongwang.com/ZdGL">在这在这</a></h2>
+    <h2>WebGL告一段落,准备手写个光线追踪&&要总结梳理JS了</h2>
+</div>
 <div>
 </div>
 </body>

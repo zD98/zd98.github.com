@@ -39,5 +39,4 @@ function render() {
   renderCircle(150, 75, r, a);
   //setTimeout(render,50);
 }
-
 render();

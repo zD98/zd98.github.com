@@ -26,7 +26,6 @@ var topic = function () {
     },
 
     subscribe: function (type, callback, it) {
-      //简单判断  日后再改
       if (type === undefined || typeof type !== "string" || Object.prototype.toString.call(type) == "[object Function]") {
         console.log("wrong");
         return;
@@ -34,7 +33,6 @@ var topic = function () {
       if (subscribers[type] == undefined) {
         subscribers[type] = [];
       }
-      //简单判断
       var sub = {};
       sub.callback = callback;
       if (it !== undefined) {
@@ -60,7 +58,7 @@ var topic = function () {
   };
 }();
 
-//测试Topic
+//????Topic
 //(function(){
 //  topic.subscribe("test",function(){
 //    console.log("test");
