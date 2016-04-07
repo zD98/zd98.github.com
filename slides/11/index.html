@@ -10,12 +10,10 @@
         alert(7);
         //throw new Error('test');
         // QA: 继续执行的同步任务 3s   异步执行的任务1s  那 同步执行结束后, 立即执行异步
-
-
         setTimeout(resolve, 1000, '10');
         alert('setTimeout');
 //        resolve(10);
-    })
+    });
     //    同步延时测试
     //    for(var i = 0;i<50000;i++){
     //        console.log(i);
@@ -42,6 +40,5 @@
     //Promise.all();
     //Promise.race()
 </script>
-
 </body>
 </html>
