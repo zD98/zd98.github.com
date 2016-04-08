@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <style>
+        .drag{
+            width: 50px;
+            height: 50px;
+            background: #f00;
+            filter: opacity(0.5);
+            -webkit-filter: opacity(0.5);
+            margin: 10px;;
+        }
+        .drop{
+            width: 300px;
+            height: 300px;
+            -webkit-filter: opacity(0.5);
+            background: #00f;
+            margin: 10px;;
+        }
+    </style>
+</head>
+<body>
+<div class="drag" draggable="true">
+
+</div>
+<div class="drag" draggable="true">
+</div>
+
+<div class="drop" ></div>
+<script>
+    var draggables = document.querySelectorAll('.drag');
+    var dragging = null;
+    Array.prototype.forEach.call(draggables,function(drag){
+        drag.onselectstart = function(){
+            return false;
+        };
+        drag.ondragstart = function(ev){
+            ev.dataTransfer.effectAllowed = true;
+            ev.dataTransfer.setData("text", ev.target.innerHTML);
+            ev.dataTransfer.setDragImage(ev.target, 0, 0);
+            dragging= ev.target;
+            return true;
+        };
+        drag.ondragend = function(ev) {
+            /*拖拽结束*/
+            ev.dataTransfer.clearData("text");
+            eleDrag = null;
+            return false
+        };
+    });
+    var drop = document.querySelector('.drop');
+    drop.ondragover = function(ev) {
+        /*拖拽元素在目标元素头上移动的时候*/
+        ev.preventDefault();
+        return true;
+    };
+
+    drop.ondragenter = function(ev) {
+        /*拖拽元素进入目标元素头上的时候*/
+        console.log(this.style);
+        this.style['-webkit-filter'] = "opacity(0.7)";
+        return true;
+    };
+    drop.ondrop = function(ev) {
+        /*拖拽元素进入目标元素头上，同时鼠标松开的时候*/
+        if(dragging){
+            dragging.parentNode.removeChild(dragging);
+        }
+        this.style['-webkit-filter'] = "opacity(0.3)";
+        return false;
+    };
+</script>
+</body>
+</html>
