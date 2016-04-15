@@ -1,102 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SVG</title>
-</head>
-<style>
-    .share {
-        max-width: 600px;
-        height: 100px;
-        margin: 0 auto;
-        -webkit-filter: url("#goo");
-        filter: url("#goo");
-        position: relative;
-    }
-    .button {
-        position: absolute;
-        display: inline-block;
-        left: 50%;
-        top: 50%;
-        border-radius: 50%;
-        width: 80px;
-        height: 80px;
-        line-height: 80px;
-        margin-left: -40px;
-        margin-top: -40px;
-        background: #ccc;
-        text-align: center;
-        color: #fff;
-        border: none;
-        outline: none;
-    }
-
-
-    .share-button {
-        font-size: 30px;
-        background: #737070;
-        -webkit-transform: scale(0.95, 0.95);
-        transform: scale(0.95, 0.95);
-        color: #222;
-    }
-
-    .share-items {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .share-item {
-        display: inline-block;
-    }
-
-</style>
-<body>
-
-<svg>
-    <defs>
-        <filter id="goo">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -5" result="goo" />
-            <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
-        </filter>
-    </defs>
-</svg>
-<div class="share">
-    <div class="button share-button">
-    </div>
-    <ul class="share-items">
-        <li class="share-item">
-            <a href="#" class="share-button">
-                <i class="share-icon fa"></i>
-            </a>
-        </li>
-        <li class="share-item">
-            <a href="#" class="share-button">
-                <i class="share-icon fa"></i>
-            </a>
-        </li>
-        <li class="share-item">
-            <a href="#" class="share-button">
-                <i class="share-icon fa"></i>
-            </a>
-        </li>
-        <li class="share-item">
-            <a href="#" class="share-button">
-                <i class="share-icon fa"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-<script>
-    var btn = document.querySelector('.button');
-    var items = document.querySelectorAll('.share-item');
-    console.log(items);
-    btn.addEventListener('click',function(){
-        for(var i=0;i<4;i++){
-            items[i].classList.add('share-button') ;
+    <title>CSS-Shape</title>
+    <style>
+        .wrap {
+            width: 320px;
         }
-    })
-</script>
+        .out-shape{
+            width: 200px;
+            height: 200px;
+            float: left;
+            shape-outside: url(shape.png);
+            shape-margin:15px;
+            -webkit-shape-margin: 15px;
+            mask-image: url(shape.png);
+            -webkit-mask-image: url(shape.png);
+        }
+        p{
+            padding: 10px;;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <img src="bg.jpeg" class="out-shape"/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum itaque nam blanditiis eveniet</p>
+    <p> enim eligendi quae adipisci?</p>
+</div>
 </body>
 </html>
