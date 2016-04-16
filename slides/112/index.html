@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS clip-path</title>
+    <style>
+        .clip{
+            transition: 0.4s cubic-bezier(1, -1, 0, 2);
+            -webkit-clip-path: circle(40px at 100px 100px);
+            clip-path: circle(40px at 100px 100px);
+            background: #f00;
+            width: 200px;
+            height: 200px;
+        }
+
+        .clip:hover{
+            -webkit-clip-path: circle(80px at 100px 100px);
+            clip-path: circle(80px at 100px 100px);
+        }
+    </style>
+</head>
+<body>
+    <div class="clip"></div>
+    <svg>
+        <defs>
+            <clipPath id="path">
+                <circle  cx="100" cy="100" r="200" />
+            </clipPath>
+            <clipPath id="path2">
+                <circle cx="100" cy="100" r="90" />
+            </clipPath>
+        </defs>
+    </svg>
+</body>
+</html>

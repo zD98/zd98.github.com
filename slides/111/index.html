@@ -16,6 +16,13 @@
             -webkit-shape-margin: 15px;
             mask-image: url(shape.png);
             -webkit-mask-image: url(shape.png);
+            transition: all 1s;
+        }
+        .out-shape:hover{
+            shape-outside: none;
+            mask-image: none;
+            -webkit-mask-image: none;
+
         }
         p{
             padding: 10px;;
@@ -23,6 +30,7 @@
     </style>
 </head>
 <body>
+<h4>shape animation to do</h4>
 <div class="wrap">
     <img src="bg.jpeg" class="out-shape"/>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum itaque nam blanditiis eveniet</p>
