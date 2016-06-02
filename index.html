@@ -13,9 +13,15 @@
 
         body {
             font-family: 'Open Sans', 'Helvetica Neue', 'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
-            color: #333;
+            color: rgba(255,0,0,.6);
+            background:#eee;
+            background-image:
+                linear-gradient(45deg,rgba(0,0,0,.1) 25%, transparent 0,transparent 75%, rgba(0,0,0,.1) 0),
+                linear-gradient(45deg,rgba(0,0,0,.1) 25%, transparent 0,transparent 75%, rgba(0,0,0,.1) 0);
+            background-position:0 0,15px 15px;
+            background-size:30px 30px;
         }
-
+        
         .wrap {
             position: absolute;
             text-align: center;
@@ -36,7 +42,7 @@
         }
 
         h2 {
-            color: #999;
+            color: rgba(255,0,0,.8);
             font-weight: normal;
             font-size: 15px;
             letter-spacing: .12em;
@@ -56,13 +62,13 @@
         }
 
         a {
-            color: #999;
+            color: rgba(255,0,0,.6);
             text-decoration: none;
             transition: color .2s ease;
         }
 
         a:hover {
-            color: #f33;
+            color: rgba(255,0,0,0.9);
         }
     </style>
 </head>
@@ -70,7 +76,7 @@
 <div class="wrap">
     <h1>ZD98</h1>
 
-    <h2>Web Front-End Designer & Developer</h2>
+    <h2>Web Front-End Designer &amp; Developer</h2>
 
     <p><a href="https://github.com/zD98/">GitHub</a></p>
 
@@ -78,7 +84,7 @@
 
     <p><a href="/cv">CV</a></p>
 
-    <p><a href="">Email</a></p>
+    <p><a href="javascript:0">Email</a></p>
 </div>
 <canvas></canvas>
 
