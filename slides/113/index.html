@@ -2,9 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CSS揭秘-</title>
+    <title>metaballs</title>
+    <style>
+    	ul{
+    		list-style: none;
+    	}
+    	.dots{
+
+    	  -webkit-filter: blur(5px) contrast(20);
+		  	filter: blur(5px) contrast(20);
+		  	background: white; 
+    	}
+    	.dot{
+    		display: inline-block;
+		   	background: #333;
+		  	/* weirdness happens when edges hit, also consider hiding overflow */
+		  	padding: 30px;
+		  	border-radius: 30px;
+		 
+    	}
+    	.move{
+    		padding: 40px;
+    		border-radius: 40px;
+    	}
+    </style>
 </head>
 <body>
-    
+    <div>
+    	<ul class=".dots">
+    		<li class="move dot"></li>
+    		<li class="dot"></li>
+    		<li class="dot"></li>
+    		<li class="dot"></li>
+    		<li class="dot"></li>
+    	</ul>
+    </div>
 </body>
 </html>
