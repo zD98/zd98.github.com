@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>metaballs</title>
+    <title>metaballs-css</title>
     <style>
     	ul{
     		list-style: none;
@@ -19,23 +19,39 @@
 		  	/* weirdness happens when edges hit, also consider hiding overflow */
 		  	padding: 30px;
 		  	border-radius: 30px;
-		 
+		  	margin: 15px;
     	}
     	.move{
+    		transition: all 1s;
+    		background: #333;
+    		position: absolute;
     		padding: 40px;
     		border-radius: 40px;
+    		margin: 5px;
     	}
     </style>
 </head>
 <body>
     <div>
-    	<ul class=".dots">
-    		<li class="move dot"></li>
+    	<ul class="dots">
+    		<li class="move"></li>
     		<li class="dot"></li>
     		<li class="dot"></li>
     		<li class="dot"></li>
     		<li class="dot"></li>
     	</ul>
     </div>
+    <script>
+    		var move = document.querySelector('.move');
+    		var dots = document.querySelectorAll('.dot');
+    		console.log(dots)
+    		dots.forEach(function(item, index){
+    			item.addEventListener('mouseenter', function(e){
+    					move.style.transform = `matrix(1,0,0,1,${index*100},0)`;
+    			})	
+    		})
+
+
+    </script>
 </body>
 </html>
